@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   mini_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 12:54:09 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/07 12:55:24 by dabae            ###   ########.fr       */
+/*   Created: 2023/12/11 11:12:10 by dabae             #+#    #+#             */
+/*   Updated: 2023/12/11 11:12:17 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    push_swap(t_list **stack)
+void    swap_3(t_list **stack)
 {
-    int size_lst;
+    int max;
+    int index_max;
 
-    size_lst = ft_lstsize(stack);
-    if (size_lst <= 3)
+    max = ft_max(stack);
+    index_max = find_index(stack, max);
+    if (index_max == 0)
     {
-        swap_3(stack);
+        ra(stack);
     }
-    else if (size_lst <= 5)
+    else if (index_max == 1)
     {
-
+        rra(stack);
     }
-    else if (size_lst <= 100)
-    {
-
-    }
-    else
-    {
-
-    }
+    if (!check_sorted(&stack))
+        sa(stack);
 }

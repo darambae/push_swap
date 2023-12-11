@@ -21,14 +21,23 @@ typedef struct s_list
 {
 	int	num;
 	int	index;
-	struct	s_list	*prev;
 	struct	s_list	*next;
 }		t_list;
 
-void	r(t_list *a)
-void	rr(t_list *a, t_list *b)
-void	rrab(t_list *a)
-void	rrr(t_list *a, t_list *b)
-void	s(t_list *a)
-void	ss(t_list *a, t_list *b)
-void	p(t_list *a, t_list *b)
+void	ra(t_list *a);
+void	rb(t_list *b);
+void	rr(t_list *a, t_list *b);
+void	rra(t_list *a);
+void	rrb(t_list *b);
+void	rrr(t_list *a, t_list *b);
+void	sa(t_list *a);
+void	sb(t_list *b);
+void	ss(t_list *a, t_list *b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void    ft_lstadd_back(t_list **stack, t_list *new);
+int     ft_max(t_list *stack);
+int     ft_min(t_list *stack);
+int 	find_index(t_list *stack, int num);
+int 	check_sorted(t_list *stack);
+
