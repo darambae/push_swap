@@ -19,6 +19,13 @@ void    ft_lstadd_back(t_list **stack, t_list *new)
     last->new = new;
 }
 
+t_list  ft_second_last_node(t_list *stack)
+{
+    while (stack && stack->next && !(stack->next->next))
+        stack = stack->next;
+    return (stack);
+}
+
 int     ft_max(t_list *stack)
 {
     int max;

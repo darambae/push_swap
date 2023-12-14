@@ -29,7 +29,10 @@ int	main(int ac, char **av)
 			i++;
 		}
 		if (check_sorted(stack))
-			return (ft_printf("OK"));
+		{
+			ft_printf("OK");
+			return (0);
+		}
 		else
 			push_swap(stack);
 	}

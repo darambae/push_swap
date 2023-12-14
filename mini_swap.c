@@ -29,3 +29,11 @@ void    swap_3(t_list **stack)
     if (!check_sorted(&stack))
         sa(stack);
 }
+
+void    swap_5(t_list **stack_a, t_list **stack_b)
+{
+    pb(stack_a, stack_b);
+    pb(stack_a, stack_b);
+    swap_3(stack_a);
+    if (stack_b)
+}

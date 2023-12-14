@@ -24,15 +24,15 @@ typedef struct s_list
 	struct	s_list	*next;
 }		t_list;
 
-void	ra(t_list *a);
-void	rb(t_list *b);
-void	rr(t_list *a, t_list *b);
-void	rra(t_list *a);
-void	rrb(t_list *b);
-void	rrr(t_list *a, t_list *b);
-void	sa(t_list *a);
-void	sb(t_list *b);
-void	ss(t_list *a, t_list *b);
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
+void	sa(t_list **a);
+void	sb(t_list **b);
+void	ss(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void    ft_lstadd_back(t_list **stack, t_list *new);
@@ -40,4 +40,5 @@ int     ft_max(t_list *stack);
 int     ft_min(t_list *stack);
 int 	find_index(t_list *stack, int num);
 int 	check_sorted(t_list *stack);
+t_list  ft_second_last_node(t_list *stack)
 

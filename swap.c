@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,30 +11,38 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static void	rotate(t_list **a)
+static void    swap(t_list **a)
 {
-    t_list  *last;
     t_list  *tmp;
+    
+    if (!a || !(*a) || !((*a)->next))
+        return ;
+    tmp =  (*a)->next;
+    (*a)->next = tmp->next;
+    tmp->next = (*a);
+    (*a) = tmp;
+}
+void	sa(t_list **a)
+{
+    swap(a);
+    ft_printf("sa\n");
+}
 
-    tmp = *a;
-    *a = (*a)->next;
-    last = ft_lstlast(a);
-    tmp->next = NULL;
-    last->next = tmp;
-}
-void    ra(t_list **a)
+void	sb(t_list **b)
 {
-    rotate(a);
-    ft_printf("ra\n");
+    swap(b);
+    ft_printf("sb\n");
 }
-void	rb(t_list **b)
+
+void	ss(t_list **a, t_list **b)
 {
-    rotate(b)
-    ft_printf("rb\n");
+    swap(a);
+    swap(b);
+    ft_printf("ss\n");
+
 }
-void	rr(t_list **a, t_list **b)
-{
-    rotate(a);
-    rotate(b);
-    ft_printf("rr\n");
-}
+
+
+
+
+
