@@ -19,21 +19,25 @@ void    swap_3(t_list **stack)
     max = ft_max(stack);
     index_max = find_index(stack, max);
     if (index_max == 0)
-    {
         ra(stack);
-    }
     else if (index_max == 1)
-    {
         rra(stack);
-    }
     if (!check_sorted(&stack))
         sa(stack);
 }
 
 void    swap_5(t_list **stack_a, t_list **stack_b)
 {
+    int max_a;
+    int min_a;
+    
     pb(stack_a, stack_b);
     pb(stack_a, stack_b);
     swap_3(stack_a);
-    if (stack_b)
+    
+    max_a = ft_max(*stack_a);
+    min_a = ft_min(*stack_a);
+    
+    pa(stack_a, stack_b);
+
 }
