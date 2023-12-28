@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 12:54:09 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/07 12:55:24 by dabae            ###   ########.fr       */
+/*   Created: 2023/12/07 12:52:31 by dabae             #+#    #+#             */
+/*   Updated: 2023/12/07 12:53:34 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    push_swap(t_list **a, t_list **b)
+static void	rotate(t_list **a)
 {
-    int size_lst;
+    t_list  *last;
+    t_list  *tmp;
 
-    size_lst = ft_lstsize(*a);
-    if (size_lst == 2)
-        sa(a);
-    else if (size_lst == 3)
-        swap_3(a);
-    else
-        swap_big(a, b);
+    tmp = *a;
+    *a = (*a)->next;
+    last = ft_lstlast(a);
+    tmp->next = NULL;
+    last->next = tmp;
+}
+void    ra(t_list **a)
+{
+    rotate(a);
+    ft_printf("ra\n");
+}
+void	rb(t_list **b)
+{
+    rotate(b)
+    ft_printf("rb\n");
+}
+void	rr(t_list **a, t_list **b)
+{
+    rotate(a);
+    rotate(b);
+    ft_printf("rr\n");
 }

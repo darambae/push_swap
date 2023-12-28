@@ -13,28 +13,23 @@
 
 int	main(int ac, char **av)
 {
-	int	i;
-	t_list	*new;
-	t_list	**stack;
+	t_list 	*a;
+	t_list	*b;
 
-	i = 1;
-	if (ac > 1)
+	a = NULL;
+	b = NULL;
+
+	if (ac == 1 || (ac == 2 && !av[1][0]))
+		return (1);
+	else if (ac == 2)
+		av = split_argv(av[1], ' ');
+	init_stack(&a, av);
+	if (!check_sorted(stack))
+		push_swap(&a, &b);
+	else
 	{
-		stack = NULL;
-		while (i < ac)
-		{
-			new = ft_lstnew(ft_atoi(av[i]));
-			new->index = i - 1;
-			ft_lstadd_last(stack, new);
-			i++;
-		}
-		if (check_sorted(stack))
-		{
-			ft_printf("OK");
-			return (0);
-		}
-		else
-			push_swap(stack);
+		ft_lstclear(stack);
+		ft_printf("OK");
 	}
 	return (0);
 }

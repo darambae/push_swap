@@ -17,12 +17,18 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
+
 typedef struct s_list
 {
 	int	num;
-	int	index;
-	struct	s_list	*next;
-}		t_list;
+	int index;
+	int cheapest;
+	int cost;
+	int up_down;
+	struct s_list *target;
+	struct s_list *next;
+	struct	s_list	*prev;
+} t_list;
 
 void	ra(t_list **a);
 void	rb(t_list **b);
@@ -36,9 +42,10 @@ void	ss(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void    ft_lstadd_back(t_list **stack, t_list *new);
-int     ft_max(t_list *stack);
-int     ft_min(t_list *stack);
+t_list  	*ft_max(t_list *stack);
+t_list		*ft_min(t_list *stack);
 int 	find_index(t_list *stack, int num);
 int 	check_sorted(t_list *stack);
 t_list  ft_second_last_node(t_list *stack)
+long    ft_atol(const char *nptr)
 
