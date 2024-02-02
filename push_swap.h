@@ -42,10 +42,11 @@ void	ss(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void    ft_lstadd_back(t_list **stack, t_list *new);
-t_list  	*ft_max(t_list *stack);
-t_list		*ft_min(t_list *stack);
-int 	find_index(t_list *stack, int num);
-int 	check_sorted(t_list *stack);
-t_list  ft_second_last_node(t_list *stack)
-long    ft_atol(const char *nptr)
+t_list  	*ft_max_node(t_list *stack);
+t_list		*ft_min_node(t_list *stack);
+t_list 	find_index(t_list *stack, int num);
+bool 	check_sorted(t_list *stack);
+t_list ft_second_last_node(t_list *stack);
+t_list *find_target(t_list *stack_a, t_list *stack_b);
 
+long ft_atol(const char *nptr);

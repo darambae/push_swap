@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int check_num(char **argv)
+static bool check_num(char **argv)
 {
     int i;
 
@@ -23,7 +23,7 @@ static int check_num(char **argv)
         while (argv[i][j])
         {
             if (!ft_isdigit(argv[i][j]))
-                return 0;
+                return (0);
             j++;
         }
         i++;
@@ -31,7 +31,7 @@ static int check_num(char **argv)
     return (1);
 }
 
-static int check_int(char **av)
+static bool check_int(char **av)
 {
     int i;
     long num;
@@ -47,7 +47,7 @@ static int check_int(char **av)
     return (1);
 }
 
-static int check_double(char **av)
+static bool check_double(char **av)
 {
     int i;
 

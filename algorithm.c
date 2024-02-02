@@ -44,9 +44,14 @@ void    swap_big(t_list **stack_a, t_list **stack_b)
     pb(stack_a, stack_b);
     while (ft_lstsize(stack_a) > 3)
     {
-        sort_descending(stack_b);
         max = ft_min_node(*stack_b);
         min = ft_max_node(*stack_b);
-        find_target(stack_a, stack_b);
+        find_target(*stack_a, *stack_b);
+        calcul_cost(*stack_a, *stack_b);
+        push_cheapest(stack_a, stack_b);
     }
+    if (!check_sorted(*stack_a))
+        swap_3(stack_a);
+    push_back_btoa(stack_a, stack_b);
+    
 }

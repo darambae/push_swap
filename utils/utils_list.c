@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_list.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -75,7 +75,7 @@ t_list     *ft_min_node(t_list *stack)
     return (min_node);
 }
 
-int find_node(t_list *stack, int num)
+t_list *find_node(t_list *stack, long num)
 {
     while (stack)
     {
@@ -83,18 +83,10 @@ int find_node(t_list *stack, int num)
             return (stack);
         stack = stack->next;
     }
-    return (-1);
+    return (NUll);
 }
 
-int check_sorted(t_list *stack)
-{
-    while (stack->num < stack->next->num && stack)
-        stack = stack->next;
-    if (!stack)
-        return (1);
-    else
-        return (0);
-}
+
 
 
 
