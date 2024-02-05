@@ -60,7 +60,7 @@ static	int	ft_size_wd(char *s, char c, int i)
 	return (size);
 }
 
-char	**ft_split(char *s, char c)
+char	**split_argv(char *s, char c)
 {
 	char	**arrs;
 	int		i;

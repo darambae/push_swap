@@ -12,14 +12,25 @@
 
 #include "push_swap.h"
 
-int    set_index_median(t_list *stack)
+void    set_index_median(t_list *stack)
 {
-    int len_stack;
+    int i;
     int median;
 
-    len_stack = ft_lstsize(stack);
-    median = len_stack / 2;
-    return (median);
+    i = 0;
+    if (!stack)
+        return ;
+    median = ft_lstsize(stack) / 2;
+    while (stack)
+    {
+        stack->index = i;
+        if (i <= median)
+            stack->before_median = true;
+        else
+            stack->before_median = false;
+        i++;
+        stack = stack->next;
+    }
 }
 
 bool check_sorted(t_list *stack)
@@ -27,46 +38,28 @@ bool check_sorted(t_list *stack)
     while (stack->num < stack->next->num && stack)
         stack = stack->next;
     if (!stack)
-        return (1);
+        return (true);
     else
-        return (0);
+        return (false);
 }
 
-t_list  *find_target(t_list *stack_a, t_list *stack_b)
+void    to_top(t_list **stack, t_list *node, char which_stack)
 {
-    t_list *target;
-    t_list *curr;
-    long smallest;
-
-    while (stack_a)
-    {
-        smallest = LONG_MIN;
-        curr = stack_b;
-        while (curr)
+    while (*stack != node)
+    {    
+        if (which_stack == 'a')
         {
-            if (curr->num < stack_a->num && curr->num > smallest)
-            {
-                smallest = curr->num;
-                target = curr;
-            }
-            curr = curr->next;
+            if (node->before_median)
+                ra(stack);
+            else
+                rra(stack);
         }
-        if (smallest == LONG_MIN)
-            target = ft_max_node(*stack_b);
-        stack_a->target = target;
-        stack_a = stack_a->next;
+        else if (which_stack == 'b')
+        {
+            if (node->before_median)
+                rb(stack);
+            else
+                rrb(stack); 
+        }
     }
-    return (stack_a);
-}
-
-t_list  *calcul_cost(t_list *stack_a, t_list *stack_b)
-{
-    int cost_to_top_a;
-    int cost_to_top_b;
-
-    while (stack_a)
-    {
-        stack_a->target 
-    }
-    //
 }

@@ -15,6 +15,7 @@
 static bool check_num(char **argv)
 {
     int i;
+    int j;
 
     i = 1;
     while (argv[i][j])
@@ -40,17 +41,18 @@ static bool check_int(char **av)
     while (av[i])
     {
         num = ft_atol(av[i]);
-        if (num < -2147483648 || num > 2147483647)
-            return (0);    
+        if (num < INT_MIN || num > INT_MAX)
+            return (false);    
         i++;
     }
-    return (1);
+    return (true);
 }
 
 static bool check_double(char **av)
 {
     int i;
-
+    int j;
+    
     i = 1;
     while (av[i])
     {
@@ -58,12 +60,12 @@ static bool check_double(char **av)
         while (av[j])
         {
             if (ft_atol(av[i]) == ft_atol(av[j]))
-                return (0);
+                return (false);
             j++;
         }
         i++;
     }
-    return (1);
+    return (true);
 }
 
 long    ft_atol(const char *nptr)
@@ -95,7 +97,6 @@ long    ft_atol(const char *nptr)
 
 void    init_stack(t_list **a, char **av)
 {
-    t_list *new;
     int i;
 
     i = 1;
@@ -103,10 +104,14 @@ void    init_stack(t_list **a, char **av)
     {
         while (av[i])
         {
-            new = NULL;
-            new = ft_lstnew(ft_atol(av[i]));
-            ft_lstadd_back(a, new);
+            add_node(a, (int)ft_atol(av[i]));
             i++;
         }
+    }
+    else
+    {
+        free_stack(a);
+        ft_printf("Error\n");
+        exit(1);
     }
 }

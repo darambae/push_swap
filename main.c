@@ -24,11 +24,11 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = split_argv(av[1], ' ');
 	init_stack(&a, av);
-	if (!check_sorted(stack))
+	if (!check_sorted(a))
 		push_swap(&a, &b);
 	else
 	{
-		ft_lstclear(stack);
+		free_stack(&a);
 		ft_printf("OK");
 	}
 	return (0);

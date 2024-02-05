@@ -26,32 +26,31 @@ void    swap_3(t_list **stack)
         sa(stack);
 }
 
-void    sort_descending(t_list **b)
-{
-    while (*b)
-    {
-        if ((*b)->num < (*b)->next->num)
-            
-        (*b) = (*b)->next;
-    }
-}
 void    swap_big(t_list **stack_a, t_list **stack_b)
 {
-    t_list *max;
-    t_list *min;
+    int stack_size;
 
-    pb(stack_a, stack_b);
-    pb(stack_a, stack_b);
-    while (ft_lstsize(stack_a) > 3)
+    stack_size = ft_lstsize(stack_a);
+    if (stack_size-- > 3 && !check_sorted(*stack_a))
+        pb(stack_a, stack_b);
+    if (stack_size-- > 3 && !check_sorted(*stack_a))
+        pb(stack_a, stack_b);
+    while (stack_size-- > 3 && !check_sorted(*stack_a))
     {
-        max = ft_min_node(*stack_b);
-        min = ft_max_node(*stack_b);
-        find_target(*stack_a, *stack_b);
-        calcul_cost(*stack_a, *stack_b);
-        push_cheapest(stack_a, stack_b);
+        set_index_median(stack_a);
+        set_index_median(stack_b);
+        find_target_in_b(*stack_a, *stack_b);
+        calcul_cost_a(*stack_a, *stack_b);
+        push_cheapest_a_to_b(stack_a, stack_b);
     }
-    if (!check_sorted(*stack_a))
-        swap_3(stack_a);
-    push_back_btoa(stack_a, stack_b);
-    
+    swap_3(stack_a);
+    while (*stack_b)
+    {
+        set_index_median(stack_a);
+        set_index_median(stack_b);
+        find_target_in_a(*stack_a, *stack_b);
+        push_back_b_to_a(stack_a, stack_b);
+    }
+    set_index_median(*stack_a);
+    to_top(stack_a, ft_min_node(*stack_a), 'a');
 }

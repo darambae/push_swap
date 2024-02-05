@@ -11,11 +11,19 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    ft_lstadd_back(t_list **stack, t_list *new)
+void    add_node(t_list **stack, int num)
 {
-    t_list  *last;
+    t_list *new;
+    t_list *last;
 
-    if (!*stack)
+    if (!stack)
+        return;
+    new = malloc(sizeof(t_list));
+    if (!new)
+        return;
+    new->next = NULL;
+    new->num = num;
+    if (!(*stack))
     {
         *stack = new;
         new->prev = NULL;
@@ -23,26 +31,25 @@ void    ft_lstadd_back(t_list **stack, t_list *new)
     else
     {
         last = ft_lstlast(*stack);
-        new->prev = last;
         last->next = new;
+        new->prev = last;
     }
 }
-
-t_list  ft_second_last_node(t_list *stack)
+t_list  *ft_second_last_node(t_list *stack)
 {
     while (stack && stack->next && !(stack->next->next))
         stack = stack->next;
     return (stack);
 }
 
-t_list     *ft_max_node(t_list *stack)
+t_list  *ft_max_node(t_list *stack)
 {
     int max;
     t_list *max_node;
 
-    max = stack->num;
-    if (!stack)
+     if (!stack)
         return (NULL);
+    max = stack->num;
     while (stack)
     {
         if (stack->num > max)
@@ -52,17 +59,17 @@ t_list     *ft_max_node(t_list *stack)
         }
         stack = stack->next;
     }
-    return max;
+    return (max_node);
 }
 
-t_list     *ft_min_node(t_list *stack)
+t_list  *ft_min_node(t_list *stack)
 {
     int min;
     t_list *min_node;
 
-    min = stack->num;
     if (!stack)
         return (NULL);
+    min = stack->num;
     while (stack)
     {
         if (stack->num < min)
@@ -75,18 +82,15 @@ t_list     *ft_min_node(t_list *stack)
     return (min_node);
 }
 
-t_list *find_node(t_list *stack, long num)
+t_list *get_cheapest_node(t_list *stack)
 {
+    if (!stack)
+        return (NULL);
     while (stack)
     {
-        if (stack->num == num)
+        if (stack->cheapest)
             return (stack);
         stack = stack->next;
     }
-    return (NUll);
+    return (NULL); 
 }
-
-
-
-
-
