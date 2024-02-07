@@ -1,34 +1,39 @@
 CC = gcc
-NAME = push_swap.a
+NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
+LIBFT = ./libft/libft.a
+OBJ_DIR = obj/
+SRC_DIR = srcs/
 SRC = main.c push_swap.c
 UTILS = utils/error_handling.c utils/init_stack.c utils/split_argv.c\
 		utils/utils_a_to_b.c utils/utils_algorithm.c utils/utils_b_to_a.c \
 		utils/utils_list.c
 ACTIONS = actions/push.c actions/reverse_rotate.c actions/rotate.c\
 		actions/swap.c actions/algorithm.c
-SRCS = $(SRC) $(UTILS) $(ACTIONS)
-OBJ = $(SRCS:.c=.o)
-LIBFTPRINTF = ./ft_printf/libftprintf.a
+
+SRCS = $(addprefix $(SRC_DIR), $(SRC) $(UTILS) $(ACTIONS))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o) $(UTILS:.c=.o) $(ACTIONS:.c=.o))
 DEPS = $(wildcard *.h)
+
 
 all : $(NAME)
 
-$(NAME) : $(LIBFTPRINTF) $(OBJ)
-	cp $(LIBFTPRINTF) $(NAME)
-	ar -rcs $@ $^
+$(LIBFT):
+		make -C ./libft
 
-$(LIBFTPRINTF):
-	make -C ./ft_printf all
-%.o: %.c $(DEPS)
+$(NAME) : $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAGS) -o $@ $^
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
+	mkdir -p $(@D)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean :
-	make -C ./ft_printf clean
-	rm -f $(OBJ)
+	make clean -C ./libft
+	rm -r $(OBJ_DIR)
 
 fclean: clean
-	make -C ./ft_printf fclean
+	rm -f $(LIBFT)
 	rm -f $(NAME)
 
 re: fclean all
