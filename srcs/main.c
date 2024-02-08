@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 	else
 	{
 		free_stack(&a);
-		write(1, "OK\n", 3);
+		write(1, "Emptied\n", 3);
 	}
 	return (0);
 }
