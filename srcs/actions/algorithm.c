@@ -10,7 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
-
+static void min_to_top(t_stack **stack_a)
+{
+    while ((*stack_a)->num != ft_min_node(*stack_a)->num)
+    {
+        if (ft_min_node(*stack_a)->before_median)
+            ra(stack_a);
+        else   
+            rra(stack_a);    
+    }
+}
 static int  find_index(t_stack *stack, int num)
 {
     while (stack)
@@ -36,6 +45,8 @@ void    swap_3(t_stack **stack)
         rra(stack);
     if (!check_sorted(*stack))
         sa(stack);
+    else
+        printf("3numbers are swapped");    
 }
 
 void    swap_big(t_stack **stack_a, t_stack **stack_b)
@@ -64,5 +75,5 @@ void    swap_big(t_stack **stack_a, t_stack **stack_b)
         push_back_b_to_a(stack_a, stack_b);
     }
     set_index_median(*stack_a);
-    to_top(stack_a, ft_min_node(*stack_a), 'a');
+    min_to_top(stack_a);
 }

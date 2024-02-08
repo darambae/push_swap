@@ -27,7 +27,10 @@ int	main(int ac, char **av)
 	if (!check_sorted(a))
 	{
 		push_swap(&a, &b);
-		write(1, "OK\n", 3);
+		if (check_sorted(a))
+			write(1, "OK\n", 3);
+		else
+			printf("Nope it isn't\n");
 		return (0);
 	}	
 	else
