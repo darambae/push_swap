@@ -29,12 +29,14 @@ void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
 
 void  calcul_cost_a(t_stack *stack_a, t_stack *stack_b)
 {
+    int size_stack;
+
+    size_stack = stack_size(stack_a);
     while (stack_a)
     {
-        if (stack_a->before_median)
-            stack_a->cost = stack_a->index;
-        else
-            stack_a->cost = stack_size(stack_a) - stack_a->index;
+        stack_a->cost = stack_a->index;
+        if (!(stack_a->before_median))
+            stack_a->cost = size_stack - stack_a->index;
         if (stack_a->target->before_median)
             stack_a->cost += stack_a->target->index;
         else
@@ -96,6 +98,10 @@ void    push_cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
         set_index_median(*stack_b);
     }
     to_top(stack_a, cheapest, 'a');
+    printf("Where is it?\n");
+    printf("then cheapest value is %i\n", cheapest->num);
+    printf("the value of the target of the cheapest is %i\n", cheapest->target->num);
     to_top(stack_b, cheapest->target, 'b');
-    pb(stack_b, stack_a);
+    pb(stack_a, stack_b);
+    printf("size of stack_b is %i\n", stack_size(*stack_b));
 }

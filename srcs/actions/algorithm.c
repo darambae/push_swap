@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
+
 static void min_to_top(t_stack **stack_a)
 {
     while ((*stack_a)->num != ft_min_node(*stack_a)->num)
@@ -44,9 +45,7 @@ void    swap_3(t_stack **stack)
     else if (index_max == 1)
         rra(stack);
     if (!check_sorted(*stack))
-        sa(stack);
-    else
-        printf("3numbers are swapped");    
+        sa(stack);   
 }
 
 void    swap_big(t_stack **stack_a, t_stack **stack_b)
@@ -64,10 +63,11 @@ void    swap_big(t_stack **stack_a, t_stack **stack_b)
         set_index_median(*stack_b);
         find_target_in_b(*stack_a, *stack_b);
         calcul_cost_a(*stack_a, *stack_b);
+        set_cheapest(*stack_a);
         push_cheapest_a_to_b(stack_a, stack_b);
     }
     swap_3(stack_a);
-    while (*stack_b)
+    while (stack_size(*stack_b))
     {
         set_index_median(*stack_a);
         set_index_median(*stack_b);

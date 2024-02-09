@@ -14,26 +14,29 @@
 static void    reverse_rotate(t_stack **a)
 {
     t_stack *last;
-    t_stack *tmp;
-    t_stack *second_last;
 
-    tmp = *a;
+    if (!*a || !(*a)->next)
+        return ;
     last = get_last_node(*a);
+    last->prev->next = NULL;
+    last->next = *a;
+    last->next->prev = last;
+    last->prev = NULL;
     *a = last;
-    last->next = tmp;
-    second_last = ft_second_last_node(*a);
-    second_last->next = NULL;
 }
+
 void	rra(t_stack **a)
 {
     reverse_rotate(a);
     write(1, "rra\n", 4);
 }
+
 void	rrb(t_stack **b)
 {
     reverse_rotate(b);
     write(1, "rrb\n", 4);
 }
+
 void	rrr(t_stack **a, t_stack **b)
 {
     reverse_rotate(a);
