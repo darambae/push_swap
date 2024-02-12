@@ -23,9 +23,10 @@ static bool check_num(char **argv)
         j = 0;
         while (argv[i][j])
         {
-            if (!ft_isdigit(argv[i][j]))
+            if (ft_isdigit(argv[i][j]) || argv[i][j] == '-' || argv[i][j] == '+')
+                j++;
+            else
                 return (0);
-            j++;
         }
         i++;
     }

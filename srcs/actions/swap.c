@@ -12,15 +12,17 @@
 #include "../push_swap.h"
 
 static void    swap(t_stack **a)
-{
-    t_stack  *tmp;
-    
-    if (!a || !(*a) || !((*a)->next))
+{  
+    if (!(*a) || !((*a)->next))
         return ;
-    tmp =  (*a)->next;
-    (*a)->next = tmp->next;
-    tmp->next = (*a);
-    (*a) = tmp;
+    *a = (*a)->next;
+    (*a)->prev->prev = *a;
+    (*a)->prev->next = (*a)->next;
+    if ((*a)->next)
+        (*a)->next->prev = (*a)->prev;
+    (*a)->next = (*a)->prev;
+    (*a)->prev = NULL;
+        
 }
 void	sa(t_stack **a)
 {

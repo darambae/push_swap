@@ -19,22 +19,22 @@ DEPS = $(wildcard *.h)
 all : $(NAME)
 
 $(LIBFT):
-		make -C ./libft
+		$(MAKE) -C ./libft
 
 $(NAME) : $(OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
-	mkdir -p $(@D)
-	$(CC) -c $(CFLAGS) $< -o $@
+	@mkdir -p $(@D)
+	@$(CC) -c $(CFLAGS) $< -o $@
 
-clean :
-	make clean -C ./libft
-	rm -r $(OBJ_DIR)
+clean:
+	$(MAKE) clean -C ./libft
+	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(LIBFT)
-	rm -f $(NAME)
+	$(MAKE) fclean -C ./libft 
+	@$(RM) -f $(NAME)
 
 re: fclean all
 

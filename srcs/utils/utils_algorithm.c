@@ -11,14 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-void    add_node_front(t_stack **stack, t_stack *node)
-{
-    if (!stack)
-        return;
-    node->next = *stack;
-    node->prev = NULL;
-    *stack = node;
-}
+
 void    add_node_end(t_stack **stack, int num)
 {
     t_stack *new;

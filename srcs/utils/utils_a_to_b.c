@@ -98,10 +98,6 @@ void    push_cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
         set_index_median(*stack_b);
     }
     to_top(stack_a, cheapest, 'a');
-    printf("Where is it?\n");
-    printf("then cheapest value is %i\n", cheapest->num);
-    printf("the value of the target of the cheapest is %i\n", cheapest->target->num);
     to_top(stack_b, cheapest->target, 'b');
     pb(stack_a, stack_b);
-    printf("size of stack_b is %i\n", stack_size(*stack_b));
 }

@@ -30,13 +30,9 @@ int	main(int ac, char **av)
 		if (check_sorted(a))
 			write(1, "OK\n", 3);
 		else
-			printf("Nope it isn't\n");
-		return (0);
+			printf("it isn't sorted\n");
 	}	
 	else
-	{
-		free_stack(&a);
-		write(1, "Emptied\n", 3);
-	}
+		write(1, "OK\n", 3);
 	return (0);
 }

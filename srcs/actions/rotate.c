@@ -14,14 +14,17 @@
 static void	rotate(t_stack **a)
 {
     t_stack  *last;
-    t_stack  *tmp;
 
-    tmp = *a;
-    *a = (*a)->next;
+    if (!*a || !(*a)->next)
+        return ;
     last = get_last_node(*a);
-    tmp->next = NULL;
-    last->next = tmp;
-}
+    last->next = *a;
+    *a = (*a)->next;
+    (*a)->prev = NULL;
+    last->next->prev = last;
+    last->next->next = NULL;
+
+}    
 void    ra(t_stack **a)
 {
     rotate(a);
