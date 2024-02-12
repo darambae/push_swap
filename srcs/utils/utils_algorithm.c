@@ -49,7 +49,7 @@ void    set_index_median(t_stack *stack)
     while (stack)
     {
         stack->index = i;
-        if (i <= median)
+        if (i < median)
             stack->before_median = true;
         else
             stack->before_median = false;
