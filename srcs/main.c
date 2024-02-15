@@ -28,11 +28,7 @@ int	main(int ac, char **av)
 	else 
 		init_stack(&a, av + 1);
 	if (!check_sorted(a))
-	{
 		push_swap(&a, &b);
-		/*if (check_sorted(a))
-			write(1, "OK\n", 3);*/
-	}	
 	free_stack(&a);
 	if (ac == 2)
 		ft_free_tab(av);
