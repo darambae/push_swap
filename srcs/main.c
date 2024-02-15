@@ -23,14 +23,15 @@ int	main(int ac, char **av)
 		return (1);
 	else if (ac == 2)
 		av = split_argv(av[1], ' ');
-	init_stack(&a, av);
+	init_stack(&a, av + 1);
 	if (!check_sorted(a))
 	{
 		push_swap(&a, &b);
-		if (check_sorted(a))
-			write(1, "OK\n", 3);
+		/*if (check_sorted(a))
+			write(1, "OK\n", 3);*/
 	}	
 	free_stack(&a);
-	ft_free_tab(av);
+	if (ac == 2)
+		ft_free_tab(av);
 	return (0);
 }
