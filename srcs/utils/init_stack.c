@@ -17,7 +17,7 @@ static bool check_num(char **argv)
     int i;
     int j;
 
-    i = 1;
+    i = 0;
     while (argv[i])
     {
         j = 0;
@@ -25,7 +25,7 @@ static bool check_num(char **argv)
         {
             while (ft_isdigit(argv[i][j + 1] && argv[i][j + 1]))
                 j++;
-            if (!argv[i][j + 1])
+            if (argv[i][j + 1])
                 return (false);
         }
         else
@@ -111,7 +111,7 @@ void    init_stack(t_stack **a, char **av)
 {
     int i;
 
-    i = 1;
+    i = 0;
     if (check_num(av) && check_int(av) && check_double(av))
     {
         while (av[i])

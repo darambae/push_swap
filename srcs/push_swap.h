@@ -54,6 +54,7 @@ void    push_back_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void init_stack(t_stack **a, char **av);
 char **split_argv(char *s, char c);
 void add_node_end(t_stack **stack, int num);
+char	**ft_free_tab(char **tab);
 t_stack *get_last_node(t_stack *stack);
 t_stack *ft_max_node(t_stack *stack);
 t_stack		*ft_min_node(t_stack *stack);

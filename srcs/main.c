@@ -31,5 +31,6 @@ int	main(int ac, char **av)
 			write(1, "OK\n", 3);
 	}	
 	free_stack(&a);
+	ft_free_tab(av);
 	return (0);
 }
