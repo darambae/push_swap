@@ -21,16 +21,26 @@ static bool check_num(char **argv)
     while (argv[i])
     {
         j = 0;
-        while (argv[i][j])
+        if (argv[i][0] == '-' || argv[i][0] == '+')
         {
-            if (ft_isdigit(argv[i][j]) || argv[i][j] == '-' || argv[i][j] == '+')
+            while (ft_isdigit(argv[i][j + 1] && argv[i][j + 1]))
                 j++;
-            else
-                return (0);
+            if (!argv[i][j + 1])
+                return (false);
+        }
+        else
+        {
+            while (argv[i][j])
+            {
+                if (ft_isdigit(argv[i][j]))
+                    j++;
+                else
+                    return (false);
+            }
         }
         i++;
     }
-    return (1);
+    return (true);
 }
 
 static bool check_int(char **av)

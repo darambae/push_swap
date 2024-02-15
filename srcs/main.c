@@ -29,10 +29,7 @@ int	main(int ac, char **av)
 		push_swap(&a, &b);
 		if (check_sorted(a))
 			write(1, "OK\n", 3);
-		else
-			printf("it isn't sorted\n");
 	}	
-	else
-		write(1, "OK\n", 3);
+	free_stack(&a);
 	return (0);
 }
