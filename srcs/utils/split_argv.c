@@ -11,22 +11,6 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-char	**ft_free_tab(char **tab)
-{
-	int	i;
-
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}
-
 static	int	ft_count_arr(char *s, char c)
 {
 	int	i;
