@@ -86,5 +86,11 @@ char	**split_argv(char *s, char c)
 		i += size;
 	}
 	arrs[z] = 0;
+	if (!check_num(arrs) || !check_int(arrs) || !check_double(arrs))
+	{
+		ft_free_tab(arrs);
+		write(1, "Error\n", 6);
+		exit(1);
+	}
 	return (arrs);
 }
