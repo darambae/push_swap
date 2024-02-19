@@ -15,23 +15,23 @@
 void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
 {
     t_stack *target;
-    t_stack *curr;
-    long smallest;
+    t_stack *curr_b;
+    long closest_smaller;
 
-    while (stack_a)
+    while(stack_a)
     {
-        smallest = LONG_MIN;
-        curr = stack_b;
-        while (curr)
+        closest_smaller = LONG_MIN;
+        curr_b = stack_b;
+        while (curr_b)
         {
-            if (curr->num < stack_a->num && curr->num > smallest)
+            if (curr_b->num < stack_a->num && curr_b->num > closest_smaller)
             {
-                smallest = curr->num;
-                target = curr;
+                closest_smaller = curr_b->num;
+                target = curr_b;
             }
-            curr = curr->next;
+            curr_b = curr_b->next;
         }
-        if (smallest == LONG_MIN)
+        if (closest_smaller == LONG_MIN)
             stack_a->target = ft_max_node(stack_b);
         else
             stack_a->target = target;
@@ -41,18 +41,20 @@ void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
 
 void  calcul_cost_a(t_stack *stack_a, t_stack *stack_b)
 {
-    int size_stack;
+    int size_stack_a;
+    int size_stack_b;
 
-    size_stack = stack_size(stack_a);
+    size_stack_a = stack_size(stack_a);
+    size_stack_b = stack_size(stack_b);
     while (stack_a)
     {
         stack_a->cost = stack_a->index;
         if (!(stack_a->before_median))
-            stack_a->cost = size_stack - stack_a->index;
+            stack_a->cost = size_stack_a - stack_a->index;
         if (stack_a->target->before_median)
             stack_a->cost += stack_a->target->index;
         else
-            stack_a->cost += stack_size(stack_b) - stack_a->target->index;
+            stack_a->cost += size_stack_b - stack_a->target->index;
         stack_a = stack_a->next;
     }
 }
@@ -77,7 +79,7 @@ void    set_cheapest(t_stack *stack_a)
     cheapest_node->cheapest = true;
 }
 
-t_stack *get_cheapest_node(t_stack *stack)
+static t_stack *get_cheapest_node(t_stack *stack)
 {
     if (!stack)
         return (NULL);
