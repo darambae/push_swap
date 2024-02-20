@@ -39,28 +39,28 @@ void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
     }
 }
 
-void  calcul_cost_a(t_stack *stack_a, t_stack *stack_b)
+void  calcul_cost_a(t_stack *a, t_stack *b)
 {
     int cost;
     int size_a;
     int size_b;
 
-    size_a = stack_size(stack_a);
-    size_b = stack_size(stack_b);
+    size_a = stack_size(a);
+    size_b = stack_size(b);
 
-    while (stack_a)
+    while (a)
     {
         cost = 0;
-        if (stack_a->before_median && stack_a->target->before_median)
-            cost = is_smaller(stack_a->index, stack_a->target->index) + absolute(stack_a->index, stack_a->target->index);
-        else if (!(stack_a->before_median) && !(stack_a->target->before_median))
-            cost = is_smaller((size_a - stack_a->index), (size_b - stack_a->target->index)) + absolute(stack_a->index, stack_a->target->index);
-        else if (stack_a->before_median && !(stack_a->target->before_median))
-            cost = stack_a->index + size_b - stack_a->target->index;
+        if (a->before_median && a->target->before_median)
+            cost = is_smaller(a->index, a->target->index) + absolute(a->index, a->target->index);
+        else if (!(a->before_median) && !(a->target->before_median))
+            cost = is_smaller((size_a - a->index), (size_b - a->target->index)) + absolute(a->index, a->target->index);
+        else if (a->before_median && !(a->target->before_median))
+            cost = a->index + size_b - a->target->index;
         else
-            cost = size_a - stack_a->index + stack_a->target->index;
-        stack_a->cost = cost;
-        stack_a = stack_a->next;
+            cost = size_a - a->index + a->target->index;
+        a->cost = cost;
+        a = a->next;
     }
 }
 
