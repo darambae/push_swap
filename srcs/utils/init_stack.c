@@ -6,18 +6,18 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:40 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/28 09:14:42 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 18:28:38 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 
-long    ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int	sign;
+	int		sign;
 	long	res;
-	int	i;
+	int		i;
 
 	sign = 1;
 	res = 0;
@@ -40,23 +40,35 @@ long    ft_atol(const char *nptr)
 	return (res * sign);
 }
 
-void    init_stack(t_stack **a, char **av)
+void	init_stack(t_stack **a, char **av)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (check_num(av) && check_int(av) && check_double(av))
-    {
-        while (av[i])
-        {
-            add_node_end(a, (int)ft_atol(av[i]));
-            i++;
-        }
-    }
-    else
-    {
-        free_stack(a);
-        write(1, "Error\n", 6);
-        exit(1);
-    }
+	i = 0;
+	if (check_num(av) && check_int(av) && check_double(av))
+	{
+		while (av[i])
+		{
+			add_node_end(a, (int)ft_atol(av[i]));
+			i++;
+		}
+		init_properties(*a);
+	}
+	else
+	{
+		free_stack(a);
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+}
+
+static void	init_properties(t_stack *a)
+{
+	while (a)
+	{
+		a->cheapest = false;
+		a->cost = 0;
+		a->target = NULL;
+		a = a->next;
+	}
 }
