@@ -6,9 +6,10 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:54:09 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/07 12:55:24 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:28:29 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void    push_swap(t_stack **a, t_stack **b)
