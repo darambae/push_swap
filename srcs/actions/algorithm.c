@@ -6,10 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:12:10 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 17:09:47 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:43:01 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
 
 static void min_to_top(t_stack **stack_a)
 {

@@ -6,14 +6,14 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:55:39 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/07 12:59:41 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:40:21 by darambae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 int	main(int ac, char **av)
 {
-	t_stack *a;
+	t_stack	*a;
 	t_stack	*b;
 
 	a = NULL;
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		av = split_argv(av[1], ' ');
 		init_stack(&a, av);
 	}
-	else 
+	else
 		init_stack(&a, av + 1);
 	if (!check_sorted(a))
 		push_swap(&a, &b);

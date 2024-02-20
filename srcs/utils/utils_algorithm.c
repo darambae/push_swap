@@ -57,6 +57,7 @@ void    set_index_median(t_stack *stack)
     while (stack)
     {
         stack->index = i;
+        stack->cheapest = false;
         if (i < median)
             stack->before_median = true;
         else
