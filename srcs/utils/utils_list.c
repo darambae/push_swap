@@ -33,6 +33,7 @@ t_stack  *ft_max_node(t_stack *stack)
     int max;
     t_stack *max_node;
 
+    max = 0;
     if (!stack)
         return (NULL);
     max = stack->num;
@@ -54,6 +55,7 @@ t_stack  *ft_min_node(t_stack *stack)
     int min;
     t_stack *min_node;
 
+    min = 0;
     if (!stack)
         return (NULL);
     min = stack->num;
