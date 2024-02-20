@@ -12,22 +12,14 @@
 
 #include "../push_swap.h"
 
-int is_smaller(int a, int b)
+int is_bigger(int a, int b)
 {
-    if (a < b)
+    if (a > b)
         return a;
     else
         return b;
-
 }
 
-int absolute(int a, int b)
-{
-    if (a < b)
-        return (b - a);
-    else
-        return (a - b);
-}
 void    add_node_end(t_stack **stack, int num)
 {
     t_stack *new;
