@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:30:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/15 16:30:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 20:30:29 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
     t_stack *curr_b;
     long closest_smaller;
 
-    while(stack_a)
+    target = NULL;
+    curr_b = NULL;
+    while (stack_a)
     {
         closest_smaller = LONG_MIN;
         curr_b = stack_b;
