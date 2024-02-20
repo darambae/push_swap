@@ -41,16 +41,20 @@ void  find_target_in_b(t_stack *stack_a, t_stack *stack_b)
 
 void  calcul_cost_a(t_stack *stack_a, t_stack *stack_b)
 {
+    int cost;
+
     while (stack_a)
     {
+        cost = 0;
         if (stack_a->before_median && stack_a->target->before_median)
             cost = stack_a->index + absolute(stack_a->index, stack_a->target->index);
         else if (!(stack_a->before_median) && !(stack_a->target->before_median))
-            cost = stack_size(stack_a) - stack_a->index + absolute(stack_a->index, stack_a->target->index) ;
+            cost = stack_size(stack_a) - stack_a->index + absolute(stack_a->index, stack_a->target->index);
         else if (stack_a->before_median && !(stack_a->target->before_median))
-            stack_a->cost = stack_a->index + stack_size(stack_b) - stack_a->target->index;
+            cost = stack_a->index + stack_size(stack_b) - stack_a->target->index;
         else
-            stack_a->cost = stack_size(stack_a) - stack_a->index + stack_a->target->index;
+            cost = stack_size(stack_a) - stack_a->index + stack_a->target->index;
+        stack_a->cost = cost;
         stack_a = stack_a->next;
     }
 }
