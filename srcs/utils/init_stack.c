@@ -6,12 +6,23 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:40 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 18:28:38 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 18:29:51 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+
+static void	init_properties(t_stack *a)
+{
+	while (a)
+	{
+		a->cheapest = false;
+		a->cost = 0;
+		a->target = NULL;
+		a = a->next;
+	}
+}
 
 long	ft_atol(const char *nptr)
 {
@@ -62,13 +73,3 @@ void	init_stack(t_stack **a, char **av)
 	}
 }
 
-static void	init_properties(t_stack *a)
-{
-	while (a)
-	{
-		a->cheapest = false;
-		a->cost = 0;
-		a->target = NULL;
-		a = a->next;
-	}
-}
