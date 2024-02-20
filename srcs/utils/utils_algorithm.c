@@ -12,6 +12,22 @@
 
 #include "../push_swap.h"
 
+int is_smaller(int a, int b)
+{
+    if (a < b)
+        return a;
+    else
+        return b;
+
+}
+
+int absolute(int a, int b)
+{
+    if (a < b)
+        return (b - a);
+    else
+        return (a - b);
+}
 void    add_node_end(t_stack **stack, int num)
 {
     t_stack *new;
@@ -49,7 +65,7 @@ void    set_index_median(t_stack *stack)
     while (stack)
     {
         stack->index = i;
-        if (i < median)
+        if (i <= median)
             stack->before_median = true;
         else
             stack->before_median = false;
