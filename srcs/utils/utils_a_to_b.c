@@ -49,7 +49,7 @@ void  calcul_cost_a(t_stack *stack_a, t_stack *stack_b)
         if (stack_a->before_median && stack_a->target->before_median)
             cost = is_smaller(stack_a->index, stack_a->target->index) + absolute(stack_a->index, stack_a->target->index);
         else if (!(stack_a->before_median) && !(stack_a->target->before_median))
-            cost = is_smaller((stack_size(stack_a) - stack_a->index), (stack_b - stack_a->target->index)) + absolute(stack_a->index, stack_a->target->index);
+            cost = is_smaller((stack_size(stack_a) - stack_a->index), (stack_size(stack_b) - stack_a->target->index)) + absolute(stack_a->index, stack_a->target->index);
         else if (stack_a->before_median && !(stack_a->target->before_median))
             cost = stack_a->index + stack_size(stack_b) - stack_a->target->index;
         else
