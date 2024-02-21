@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:15:25 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/28 09:15:28 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:21:40 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ static void push(t_stack **a, t_stack **b)
     }
 }
 
-void    pa(t_stack **a, t_stack **b)
+void    pa(t_stack **a, t_stack **b, bool print)
 {
     push(b, a);
-    write(1, "pa\n", 3);
+    if (print)
+        write(1, "pa\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, bool print)
 {
     push(a, b);
-    write(1, "pb\n", 3);
+    if (print)
+        write(1, "pb\n", 3);
 }

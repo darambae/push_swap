@@ -6,9 +6,10 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:52:31 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/07 12:53:34 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:22:27 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	rotate(t_stack **a)
@@ -25,19 +26,22 @@ static void	rotate(t_stack **a)
     last->next->next = NULL;
 
 }    
-void    ra(t_stack **a)
+void    ra(t_stack **a, bool print)
 {
     rotate(a);
-    write(1, "ra\n", 3);
+    if (print)
+        write(1, "ra\n", 3);
 }
-void	rb(t_stack **b)
+void	rb(t_stack **b, bool print)
 {
     rotate(b);
-    write(1, "rb\n", 3);
+    if (print)
+        write(1, "rb\n", 3);
 }
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, bool print)
 {
     rotate(a);
     rotate(b);
-    write(1, "rr\n", 3);
+    if (print)
+        write(1, "rr\n", 3);
 }

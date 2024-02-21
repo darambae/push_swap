@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:05:16 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 14:52:52 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:24:41 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a, bool print);
+void	rb(t_stack **b, bool print);
+void	rr(t_stack **a, t_stack **b, bool print);
+void	rra(t_stack **a, bool print);
+void	rrb(t_stack **b, bool print);
+void	rrr(t_stack **a, t_stack **b, bool print);
+void	sa(t_stack **a, bool print);
+void	sb(t_stack **b, bool print);
+void	ss(t_stack **a, t_stack **b, bool print);
+void	pa(t_stack **a, t_stack **b, bool print);
+void	pb(t_stack **a, t_stack **b, bool print);
 void	swap_3(t_stack **stack);
 void	swap_5(t_stack **a, t_stack **b);
 void	swap_big(t_stack **stack_a, t_stack **stack_b);

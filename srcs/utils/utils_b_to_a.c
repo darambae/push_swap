@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:30:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 21:26:56 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:27:12 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void    find_target_in_a(t_stack *stack_a, t_stack *stack_b)
 void    push_back_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
     to_top(stack_a, (*stack_b)->target, 'a');
-    pa(stack_a, stack_b);
+    pa(stack_a, stack_b, 1);
 }

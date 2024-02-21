@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: darambae <dabae@student.42perpignan.fr>    +#+  +:+       +#+        */
+/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:52:46 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/13 12:52:59 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:22:01 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void    reverse_rotate(t_stack **a)
@@ -25,21 +26,24 @@ static void    reverse_rotate(t_stack **a)
     last->next->prev = last;
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, bool print)
 {
     reverse_rotate(a);
-    write(1, "rra\n", 4);
+    if (print)
+        write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, bool print)
 {
     reverse_rotate(b);
-    write(1, "rrb\n", 4);
+    if (print)
+        write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, bool print)
 {
     reverse_rotate(a);
     reverse_rotate(b);
-    write(1, "rrr\n", 4);
+    if (print)
+        write(1, "rrr\n", 4);
 }

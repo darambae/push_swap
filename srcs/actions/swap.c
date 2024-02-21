@@ -24,23 +24,26 @@ static void    swap(t_stack **a)
     (*a)->prev = NULL;
         
 }
-void	sa(t_stack **a)
+void	sa(t_stack **a, bool print)
 {
     swap(a);
-    write(1, "sa\n", 3);
+    if (print)
+        write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, bool print)
 {
     swap(b);
-    write(1, "sb\n", 3);
+    if (print)
+        write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, bool print)
 {
     swap(a);
     swap(b);
-    write(1, "ss\n", 3);
+    if (print)
+        write(1, "ss\n", 3);
 }
 
 

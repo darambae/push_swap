@@ -86,16 +86,16 @@ void    to_top(t_stack **stack, t_stack *node, char which_stack)
         if (which_stack == 'a')
         {
             if (node->before_median)
-                ra(stack);
+                ra(stack, 1);
             else
-                rra(stack);
+                rra(stack, 1);
         }
         else if (which_stack == 'b')
         {
             if (node->before_median)
-                rb(stack);
+                rb(stack, 1);
             else
-                rrb(stack); 
+                rrb(stack, 1); 
         }
     }
 }

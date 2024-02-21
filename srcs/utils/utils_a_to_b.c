@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:30:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 20:35:50 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:26:18 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,18 +105,18 @@ void    push_cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
     if (cheapest->before_median && cheapest->target->before_median)
     {
         while (*stack_a != cheapest && *stack_b != cheapest->target)
-            rr(stack_a, stack_b);
+            rr(stack_a, stack_b, 1);
         set_index_median(*stack_a);
         set_index_median(*stack_b);
     }
     else if (!(cheapest->before_median) && !(cheapest->target->before_median))
     {
         while (*stack_a != cheapest && *stack_b != cheapest->target)
-            rrr(stack_a, stack_b);
+            rrr(stack_a, stack_b, 1);
         set_index_median(*stack_a);
         set_index_median(*stack_b);
     }
     to_top(stack_a, cheapest, 'a');
     to_top(stack_b, cheapest->target, 'b');
-    pb(stack_a, stack_b);
+    pb(stack_a, stack_b, 1);
 }

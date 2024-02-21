@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:20 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 14:56:15 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:25:42 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	**split_argv(char *s, char c)
 	if (!check_num(arrs) || !check_int(arrs) || !check_double(arrs))
 	{
 		ft_free_tab(arrs);
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	return (arrs);

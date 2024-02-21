@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:12:10 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 09:11:17 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:24:05 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void min_to_top(t_stack **stack_a)
     while ((*stack_a)->num != ft_min_node(*stack_a)->num)
     {
         if (ft_min_node(*stack_a)->before_median)
-            ra(stack_a);
+            ra(stack_a, 1);
         else   
-            rra(stack_a);    
+            rra(stack_a, 1);    
     }
 }
 static int  find_index(t_stack *stack, int num)
@@ -42,11 +42,11 @@ void    swap_3(t_stack **stack)
     max = ft_max_node(*stack);
     index_max = find_index(*stack, max->num);
     if (index_max == 0)
-        ra(stack);
+        ra(stack, 1);
     else if (index_max == 1)
-        rra(stack);
+        rra(stack, 1);
     if (!check_sorted(*stack))
-        sa(stack);   
+        sa(stack, 1);   
 }
 
 void    swap_5(t_stack **a, t_stack **b)
@@ -58,11 +58,11 @@ void    swap_5(t_stack **a, t_stack **b)
     {
         set_index_median(*a);
         min_to_top(a);
-        pb(a, b);
+        pb(a, b, 1);
     }
     swap_3(a);
     while (stack_size(*b))
-        pa(a, b);
+        pa(a, b, 1);
 }
 
 void    swap_big(t_stack **stack_a, t_stack **stack_b)
@@ -71,9 +71,9 @@ void    swap_big(t_stack **stack_a, t_stack **stack_b)
 
     size = stack_size(*stack_a);
     if (size-- > 3 && !check_sorted(*stack_a))
-        pb(stack_a, stack_b);
+        pb(stack_a, stack_b, 1);
     if (size-- > 3 && !check_sorted(*stack_a))
-        pb(stack_a, stack_b);
+        pb(stack_a, stack_b, 1);
     while (size-- > 3 && !check_sorted(*stack_a))
     {
         set_index_median(*stack_a);
