@@ -24,10 +24,10 @@ $(LIBFT):
 		$(MAKE) -C ./libft
 
 $(NAME) : $(OBJ) $(LIBFT)
-	@$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $@ $^ -L./libft -lft
 
 bonus: $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $^
+	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $^ -L./libft -lft
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(@D)
