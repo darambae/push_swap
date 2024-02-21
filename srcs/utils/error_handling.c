@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:29:24 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 10:25:13 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 14:55:25 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ bool check_num(char **av)
     return (true);
 }
 
-bool check_int(char *av)
+bool check_int(char **av)
 {
     long num;
 
-    while (av)
+    while (*av)
     {
-        num = ft_atol(av);
+        num = ft_atol(*av);
         if (num < INT_MIN || num > INT_MAX)
             return (false);    
         av++;
