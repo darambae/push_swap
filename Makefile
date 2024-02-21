@@ -20,14 +20,14 @@ BONUS_OBJ = $(BONUS:.c=.o)
 
 all : $(NAME)
 
-bonus: $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $^
-
 $(LIBFT):
 		$(MAKE) -C ./libft
 
 $(NAME) : $(OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) -o $@ $^
+
+bonus: $(LIBFT) $(OBJ)
+	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $^
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(@D)
