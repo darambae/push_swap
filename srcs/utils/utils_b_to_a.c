@@ -6,13 +6,13 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:30:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 20:41:22 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/20 21:26:56 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void  find_target_in_a(t_stack *stack_a, t_stack *stack_b)
+void    find_target_in_a(t_stack *stack_a, t_stack *stack_b)
 {
     t_stack *target;
     t_stack *curr_a;

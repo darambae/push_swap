@@ -6,9 +6,10 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:55:39 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 17:40:21 by darambae         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:26:21 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int ac, char **av)

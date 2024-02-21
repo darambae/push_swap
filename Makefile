@@ -1,9 +1,11 @@
 CC = gcc -g
 NAME = push_swap
+NAME_BONUS = checker
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 OBJ_DIR = obj/
 SRC_DIR = srcs/
+CHECKER_DIR = checker/
 SRC = main.c push_swap.c
 UTILS = utils/error_handling.c utils/init_stack.c utils/split_argv.c\
 		utils/utils_a_to_b.c utils/utils_algorithm.c utils/utils_b_to_a.c \

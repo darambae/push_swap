@@ -6,9 +6,10 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:20 by dabae             #+#    #+#             */
-/*   Updated: 2023/12/28 09:14:28 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 09:48:26 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static	int	ft_count_arr(char *s, char c)
@@ -65,7 +66,7 @@ char	**split_argv(char *s, char c)
 			i++;
 		size = ft_size_wd(s, c, i);
 		arrs[z] = ft_substr(s, i, size);
-		if (!arrs[z])
+		if (!arrs[z] || ft_strcmp(arrs[z], "") == 0)
 			return (ft_free_tab(arrs));
 		i += size;
 	}

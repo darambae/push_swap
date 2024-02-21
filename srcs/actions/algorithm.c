@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:12:10 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 17:43:01 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 09:11:17 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ void    swap_3(t_stack **stack)
         rra(stack);
     if (!check_sorted(*stack))
         sa(stack);   
+}
+
+void    swap_5(t_stack **a, t_stack **b)
+{
+    int size_a;
+
+    size_a = stack_size(*a);
+    while (size_a-- > 3 &&!check_sorted(*a))
+    {
+        set_index_median(*a);
+        min_to_top(a);
+        pb(a, b);
+    }
+    swap_3(a);
+    while (stack_size(*b))
+        pa(a, b);
 }
 
 void    swap_big(t_stack **stack_a, t_stack **stack_b)

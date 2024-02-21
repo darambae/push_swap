@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:05:16 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 17:25:16 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 09:04:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	swap_3(t_stack **stack);
+void	swap_5(t_stack **a, t_stack **b);
 void	swap_big(t_stack **stack_a, t_stack **stack_b);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	to_top(t_stack **stack, t_stack *node, char which_stack);

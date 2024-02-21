@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:54:09 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/20 17:37:21 by darambae         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:57:32 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	push_swap(t_stack **a, t_stack **b)
 		sa(a);
 	else if (size_lst == 3)
 		swap_3(a);
+	else if (size_lst == 5)
+		swap_5(a, b);
 	else
 		swap_big(a, b);
 }
