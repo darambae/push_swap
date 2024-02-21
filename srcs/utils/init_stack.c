@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:40 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 09:45:34 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 10:30:18 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ long	ft_atol(const char *nptr)
 void	error_msg(t_stack **stack)
 {
 		free_stack(stack);
-		write(1, "Error\n", 6);
+		write(0, "Error\n", 6);
 		exit(1);
 }
 
@@ -62,9 +62,9 @@ void	init_stack(t_stack **a, char **av)
 	int	i;
 
 	i = 0;
-	if (check_num(av) && check_int(av) && check_double(av))
+	if (check_num(av) && check_double(av))
 	{
-		while (av[i])
+		while (av[i] && check_int(av[i]))
 		{
 			add_node_end(a, (int)ft_atol(av[i]));
 			i++;

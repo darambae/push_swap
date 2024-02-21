@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:05:16 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 09:04:49 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 10:24:21 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_stack	*ft_max_node(t_stack *stack);
 t_stack	*ft_min_node(t_stack *stack);
 int		stack_size(t_stack *stack);
 bool	check_num(char **av);
-bool	check_int(char **av);
+bool	check_int(char *av);
 bool	check_double(char **av);
 void	set_index_median(t_stack *stack);
 bool	check_sorted(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:29:24 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/15 16:29:36 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/21 10:25:13 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ bool check_num(char **av)
     while (av[i])
     {
         j = 0;
+        if (ft_strcmp(av[i], "") == 0)
+            return (false);
         if (av[i][0] == '-' || av[i][0] == '+')
         {
             while (ft_isdigit(av[i][j + 1]) && av[i][j + 1])
@@ -76,18 +78,16 @@ bool check_num(char **av)
     return (true);
 }
 
-bool check_int(char **av)
+bool check_int(char *av)
 {
-    int i;
     long num;
 
-    i = 1;
-    while (av[i])
+    while (av)
     {
-        num = ft_atol(av[i]);
+        num = ft_atol(av);
         if (num < INT_MIN || num > INT_MAX)
             return (false);    
-        i++;
+        av++;
     }
     return (true);
 }
@@ -98,7 +98,7 @@ bool check_double(char **av)
     int j;
 
     j = 0;
-    i = 1;
+    i = 0;
     while (av[i])
     {
         j = i + 1;
