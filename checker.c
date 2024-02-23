@@ -35,7 +35,7 @@ static int	read_actions(t_stack *a, t_stack *b)
 
 	while (1)
 	{
-		str = get_next_line(0);
+		str = get_next_line(1);
 		if (str == NULL)
             break ;
 		if (execute_actions(&a, &b, str) == EXIT_FAILURE)
