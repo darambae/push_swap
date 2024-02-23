@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:52:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 16:22:01 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:34:55 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 static void    reverse_rotate(t_stack **a)
 {

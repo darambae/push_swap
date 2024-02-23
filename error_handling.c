@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:29:24 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 14:55:25 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:34:43 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 char	**ft_free_tab(char **tab)
 {

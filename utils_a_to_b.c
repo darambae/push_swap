@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:30:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 16:26:18 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:35:03 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 void    find_target_in_b(t_stack *stack_a, t_stack *stack_b)
 {

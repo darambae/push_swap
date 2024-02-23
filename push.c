@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:15:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 16:21:40 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:34:53 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 static void push(t_stack **a, t_stack **b)
 {

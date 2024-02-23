@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:52:31 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 16:22:27 by dabae            ###   ########.fr       */
+/*   Updated: 2023/12/07 12:53:34 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
-static void	rotate(t_stack **a)
-{
-    t_stack  *last;
-
-    if (!*a || !(*a)->next)
+static void    swap(t_stack **a)
+{  
+    if (!(*a) || !((*a)->next))
         return ;
-    last = get_last_node(*a);
-    last->next = *a;
     *a = (*a)->next;
+    (*a)->prev->prev = *a;
+    (*a)->prev->next = (*a)->next;
+    if ((*a)->next)
+        (*a)->next->prev = (*a)->prev;
+    (*a)->next = (*a)->prev;
     (*a)->prev = NULL;
-    last->next->prev = last;
-    last->next->next = NULL;
+        
+}
+void	sa(t_stack **a, bool print)
+{
+    swap(a);
+    if (print)
+        write(1, "sa\n", 3);
+}
 
-}    
-void    ra(t_stack **a, bool print)
+void	sb(t_stack **b, bool print)
 {
-    rotate(a);
+    swap(b);
     if (print)
-        write(1, "ra\n", 3);
+        write(1, "sb\n", 3);
 }
-void	rb(t_stack **b, bool print)
+
+void	ss(t_stack **a, t_stack **b, bool print)
 {
-    rotate(b);
+    swap(a);
+    swap(b);
     if (print)
-        write(1, "rb\n", 3);
+        write(1, "ss\n", 3);
 }
-void	rr(t_stack **a, t_stack **b, bool print)
-{
-    rotate(a);
-    rotate(b);
-    if (print)
-        write(1, "rr\n", 3);
-}
+
+
+
+
+

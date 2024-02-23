@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:20 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 16:25:42 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:34:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 static	int	ft_count_arr(char *s, char c)
 {

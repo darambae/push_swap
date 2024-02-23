@@ -9,8 +9,8 @@
 /*   Updated: 2023/12/07 13:53:44 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
 
+#include "include/push_swap.h"
 
 t_stack *get_last_node(t_stack *stack)
 {

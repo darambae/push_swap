@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:23:50 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 17:04:06 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:23:25 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 9000
 # endif
 
 # include <stdlib.h>

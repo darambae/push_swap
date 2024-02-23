@@ -1,45 +1,53 @@
-CC = gcc -g
 NAME = push_swap
 BONUS_NAME = checker
-CFLAGS = -Wall -Wextra -Werror
-LIBFT = ./libft/libft.a
-OBJ_DIR = obj/
-SRC_DIR = srcs/
-CHECKER_DIR = checker/
-SRC = main.c push_swap.c
-UTILS = utils/error_handling.c utils/init_stack.c utils/split_argv.c\
-		utils/utils_a_to_b.c utils/utils_algorithm.c utils/utils_b_to_a.c \
-		utils/utils_list.c
-ACTIONS = actions/push.c actions/reverse_rotate.c actions/rotate.c\
-		actions/swap.c actions/algorithm.c
-BONUS = checker/checker.c checker/checker_utils.c checker/get_next_line/get_next_line_utils.c checker/get_next_line/get_next_line.c
-SRCS = $(addprefix $(SRC_DIR), $(SRC) $(UTILS) $(ACTIONS) $(BONUS))
-OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o) $(UTILS:.c=.o) $(ACTIONS:.c=.o) $(BONUS:.c=.o))
-DEPS = $(wildcard *.h)
-BONUS_OBJ = $(BONUS:.c=.o)
 
-all : $(NAME)
+CC = gcc -g
+CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES)
+LIBFT = libft/libft.a
+SRC_DIR = srcs
+
+GET_NEXT_LINE_DIR = get_next_line
+GET_NEXT_LINE = $(wildcard $(GET_NEXT_LINE_DIR)/*.c)
+INCLUDES = include
+SRC = main.c push_swap.c
+BONUS = $(BONUS_NAME).c
+COMMON = algorithm.c error_handling.c \
+		init_stack.c push.c reverse_rotate.c \
+		rotate.c split_argv.c swap.c \
+		utils_a_to_b.c utils_algorithm.c \
+		utils_b_to_a.c utils_list.c
+SRCS_BONUS = $(BONUS) $(GET_NEXT_LINE)
+OBJ = $(SRC:.c=.o)
+OBJ_COMMON = $(COMMON:.c=.o)
+OBJ_BONUS = $(SRCS_BONUS:.c=.o)
+
+all: $(NAME)
+
+$(NAME) : $(LIBFT) $(OBJ) $(OBJ_COMMON)
+	$(CC) $(CFLAGS) -o $@ $^ -L./libft -lft
+
+$(BONUS_NAME) : $(LIBFT) $(OBJ_COMMON) $(OBJ_BONUS)
+	$(CC) $(CFLAGS) -o $@ $^ -L./libft -lft
+
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
+
+#$(OBJ_DIR)%.o: $(SRC_DIR)%.c 
+#	@mkdir -p $(@D)
+#	$(CC) $(CFLAGS) -c $< -o $@
+
+#$(OBJ_DIR)/%.o: $(SRC_DIR)%.c $(GET_NEXT_LINE)
+#	@mkdir -p $(@D)
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-		$(MAKE) -C ./libft
+	$(MAKE) -C ./libft
 
-$(NAME) : $(OBJ) $(LIBFT)
-	@$(CC) $(CFLAGS) -o $@ $^ -L./libft -lft
-
-bonus: $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) -o $(BONUS_NAME) $^ -L./libft -lft
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
-	@mkdir -p $(@D)
-	@$(CC) -c $(CFLAGS) $< -o $@
-
-$(OBJ_DIR)%.o: $(CHECKER_DIR)%.c $(DEPS)
-	@mkdir -p $(@D)
-	@$(CC) -c $(CFLAGS) $< -o $@	
+bonus: $(BONUS_NAME)
 
 clean:
 	$(MAKE) clean -C ./libft
-	@$(RM) -r $(OBJ_DIR)
+	@$(RM) -f $(OBJ) $(OBJ_COMMON) $(OBJ_BONUS)
 
 fclean: clean
 	$(MAKE) fclean -C ./libft 

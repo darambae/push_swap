@@ -6,11 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:40 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 14:55:53 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:34:45 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "include/push_swap.h"
 
 static void	init_properties(t_stack *a)
 {
@@ -52,9 +52,9 @@ long	ft_atol(const char *nptr)
 
 void	error_msg(t_stack **stack)
 {
-		free_stack(stack);
-		write(2, "Error\n", 6);
-		exit(1);
+	free_stack(stack);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	init_stack(t_stack **a, char **av)
