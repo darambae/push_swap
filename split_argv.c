@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 09:14:20 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/22 17:34:59 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/23 13:55:11 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ static	int	ft_size_wd(char *s, char c, int i)
 	return (size);
 }
 
+static void	check_argv_in_tab(char **arrs)
+{
+	if (!check_num(arrs) || !check_int(arrs) || !check_double(arrs))
+	{
+		ft_free_tab(arrs);
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+}
+
 char	**split_argv(char *s, char c)
 {
 	char	**arrs;
@@ -58,10 +68,10 @@ char	**split_argv(char *s, char c)
 		return (NULL);
 	i = 0;
 	z = -1;
-    if (!ft_count_arr(s, c))
-        exit(1);
-    while (++z < ft_count_arr(s, c))
-    {
+	if (!ft_count_arr(s, c))
+		exit(1);
+	while (++z < ft_count_arr(s, c))
+	{
 		while (s[i] == c)
 			i++;
 		size = ft_size_wd(s, c, i);
@@ -71,11 +81,6 @@ char	**split_argv(char *s, char c)
 		i += size;
 	}
 	arrs[z] = 0;
-	if (!check_num(arrs) || !check_int(arrs) || !check_double(arrs))
-	{
-		ft_free_tab(arrs);
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+	check_argv_in_tab(arrs);
 	return (arrs);
 }

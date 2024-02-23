@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:05:16 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/22 13:47:39 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/23 11:17:33 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	swap_3(t_stack **stack);
 void	swap_5(t_stack **a, t_stack **b);
 void	swap_big(t_stack **stack_a, t_stack **stack_b);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
+void	min_to_top(t_stack **stack_a);
 void	to_top(t_stack **stack, t_stack *node, char which_stack);
 void	push_cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	push_back_b_to_a(t_stack **stack_a, t_stack **stack_b);

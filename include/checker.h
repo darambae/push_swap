@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/23 13:48:46 by dabae             #+#    #+#             */
+/*   Updated: 2024/02/23 13:49:10 by dabae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
@@ -29,12 +40,12 @@ void	sb(t_stack **b, bool print);
 void	ss(t_stack **a, t_stack **b, bool print);
 void	pa(t_stack **a, t_stack **b, bool print);
 void	pb(t_stack **a, t_stack **b, bool print);
-long ft_atol(const char *nptr);
-void error_msg(t_stack **stack);
-void init_stack(t_stack **a, char **av);
-char **split_argv(char *s, char c);
-char **ft_free_tab(char **tab);
-int stack_size(t_stack *stack);
-bool check_sorted(t_stack *stack);
-void free_stack(t_stack **stack);
+long	ft_atol(const char *nptr);
+void	error_msg(t_stack **stack);
+void	init_stack(t_stack **a, char **av);
+char	**split_argv(char *s, char c);
+char	**ft_free_tab(char **tab);
+int		stack_size(t_stack *stack);
+bool	check_sorted(t_stack *stack);
+void	free_stack(t_stack **stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:07:09 by dabae             #+#    #+#             */
-/*   Updated: 2024/02/21 17:14:25 by dabae            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:09:29 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static	void	clean_keep_rest(t_link_list **buf_list)
 {
 	t_link_list	*last;
 	t_link_list	*new;
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	new = malloc(sizeof(t_link_list));
 	if (!buf_list || !new)
@@ -29,7 +29,7 @@ static	void	clean_keep_rest(t_link_list **buf_list)
 		i++;
 	if (last->str_tmp && last->str_tmp[i] == '\n')
 		i++;
-	new->str_tmp = malloc(sizeof(char) * (ft_strlen_gnl(last->str_tmp) - i + 1));
+	new->str_tmp = malloc(sizeof(char) *(ft_strlen_gnl(last->str_tmp) - i + 1));
 	if (!new->str_tmp)
 		return ;
 	j = 0;
@@ -72,7 +72,7 @@ static void	add_node(t_link_list **buf_list, char *buffer, int bytes_read)
 {
 	t_link_list	*new;
 	t_link_list	*tmp;
-	int		i;
+	int			i;
 
 	new = malloc(sizeof(t_link_list));
 	if (!new)
@@ -124,7 +124,7 @@ static	void	create_list(t_link_list **buf_list, int fd)
 char	*get_next_line(int fd)
 {
 	static t_link_list	*buf_list = NULL;
-	char			*line;
+	char				*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) == -1)
 	{

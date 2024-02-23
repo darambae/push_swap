@@ -10,7 +10,7 @@ GET_NEXT_LINE_DIR = get_next_line
 GET_NEXT_LINE = $(wildcard $(GET_NEXT_LINE_DIR)/*.c)
 INCLUDES = include
 SRC = main.c push_swap.c
-BONUS = $(BONUS_NAME).c
+BONUS = $(BONUS_NAME).c push_swap.c
 COMMON = algorithm.c error_handling.c \
 		init_stack.c push.c reverse_rotate.c \
 		rotate.c split_argv.c swap.c \
