@@ -63,7 +63,6 @@ int main(int ac, char **av)
 	}
 	else
 		init_stack(&a, av + 1);
-    ft_free_tab(av);
     b = NULL;
     if (read_actions(a, b) == EXIT_SUCCESS)
     {
@@ -76,6 +75,8 @@ int main(int ac, char **av)
         else
             write(1, "KO\n", 3);
 	}
+    if (ac == 2)
+		ft_free_tab(av);
     free_stack(&a);
     free_stack(&b);
     return (EXIT_FAILURE);
